@@ -1,9 +1,15 @@
+import { Icons, Nav, Title } from "./style";
+
 export default function NavBar(){
     return (
-        <nav>
+        <Nav>
             <div>
-                <h1>Marvel HQ'S</h1>
+                <Title>Marvel HQ'S</Title>
             </div>
-        </nav>
+            <div>
+                <Icons>Login</Icons>
+                <Icons>cart</Icons>
+            </div>
+        </Nav>
     )
 }
