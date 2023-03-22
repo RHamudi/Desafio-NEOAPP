@@ -1,4 +1,5 @@
-import { Icons, Nav, Title } from "./style";
+import { Icons, Nav, Title, IconDiv } from "./style";
+import {AiOutlineShoppingCart} from 'react-icons/ai'
 
 export default function NavBar(){
     return (
@@ -6,10 +7,9 @@ export default function NavBar(){
             <div>
                 <Title>Marvel HQ'S</Title>
             </div>
-            <div>
-                <Icons>Login</Icons>
-                <Icons>cart</Icons>
-            </div>
+            <IconDiv>
+                <Icons> <AiOutlineShoppingCart /> </Icons>
+            </IconDiv>
         </Nav>
     )
 }
