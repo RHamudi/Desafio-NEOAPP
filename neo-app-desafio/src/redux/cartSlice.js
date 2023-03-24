@@ -14,8 +14,8 @@ export const slice = createSlice({
         removeCart(state, {payload}){
             for(var i= 0; i<state.comics.length; i++)
             {
-                if(state.comics[i].title === payload[0].title){
-                    return {...state, error: 'teste'}
+                if(state.comics[i].title === payload.title){
+                    return {...state, comics: [...state.comics].filter(item => item.title != payload.title)}
                 }
             }
         }
