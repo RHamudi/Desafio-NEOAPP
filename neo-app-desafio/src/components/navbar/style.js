@@ -8,6 +8,7 @@ export const Nav = styled.nav`
     background-color: black;
     position: fixed;
     width: 100vw;
+    z-index: 10000;
     div {
         padding-left: 50px;
     }
@@ -26,4 +27,7 @@ export const Title = styled.h1`
 export const Icons = styled.span`
     font-size: 1.7rem;
     padding-right: 50px;
+`
+export const Logo = styled.img`
+    width: 7rem;
 `

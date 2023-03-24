@@ -1,12 +1,15 @@
-import { Icons, Nav, Title, IconDiv } from "./style";
+import { Icons, Nav, IconDiv, Logo } from "./style";
 import {AiOutlineShoppingCart} from 'react-icons/ai'
 import { Link } from "react-router-dom";
+import ImagemLogo from '../../assets/Marvel_Logo.svg.png'
 
 export default function NavBar(){
     return (
         <Nav>
             <div>
-                <Title>Marvel HQ'S</Title>
+                <Link to="/">
+                    <Logo src={ImagemLogo} alt="Logo" />
+                </Link>
             </div>
             <IconDiv>
                 <Link to="/cart">
