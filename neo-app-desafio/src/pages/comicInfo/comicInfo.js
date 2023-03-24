@@ -1,4 +1,5 @@
 import md5 from "md5";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom"
 import { getComics } from "../../hooks/useGetComics";
@@ -17,15 +18,15 @@ export default function ComicInfo(){
     const {data: comic, isLoading: loading} = useQuery(['Comic'], () => getComics(url));
 
     if(!loading){
-
-        console.log()
         return (
             <DivMain>
                 <img src={comic.map(comic => comic.images[0].path + "." + comic.images[0].extension)} />
                 <div>
                     <h1>{comic[0].title}</h1>
-                    <span>{comic.map(comic => comic.prices).map(item => item[0].price)[0]}</span>
-                    <button>Comprar</button>
+                    <hr></hr>
+                    <p>{comic[0].description}</p>
+                    <span>R$: {comic.map(comic => comic.prices).map(item => item[0].price)[0]}</span>
+                    <button>Adicionar <AiOutlineShoppingCart/> </button>
                 </div>
             </DivMain>
         )
