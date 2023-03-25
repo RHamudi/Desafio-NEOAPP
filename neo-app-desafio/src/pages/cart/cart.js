@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import CardCart from "../../components/cardCart/cardCart";
 import { selectCart } from "../../redux/cartSlice";
-import { DivCart, DivCarts, DivPrice, DivResumo, Resumo, Section, Title } from "./style";
+import { ButtonAdicionar, DivCart, DivCarts, DivPrice, DivResumo, Resumo, Section, Title } from "./style";
 
 export default function Cart(){
     const {comics, count} = useSelector(selectCart)
@@ -12,8 +12,6 @@ export default function Cart(){
     (accumulator, currentValue) => accumulator + currentValue,
     initialValue
     );
-
-    console.log(sumWithInitial)
 
     return (
         <Section>
@@ -31,9 +29,11 @@ export default function Cart(){
                         <div>
                             <p>Subtotal: </p> <p>R$ :{sumWithInitial}</p>
                         </div>
-                        <input type="text" />
+                        <span>
+                            Cupom desconto: <input type="text" /> <button>Aplicar</button>
+                        </span>
                     </DivPrice>
-                    <button>Comprar</button>
+                    <ButtonAdicionar>Comprar</ButtonAdicionar>
                 </Resumo>
             </DivCart>
         </Section>

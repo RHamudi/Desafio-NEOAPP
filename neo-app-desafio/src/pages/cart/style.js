@@ -35,25 +35,25 @@ export const Resumo = styled.div`
     background-color: white;
     height: 20vw;
     padding: 10px;
-    
-    button {
-        background-color: #fff000;
-        border-radius: 12px;
-        color: #000;
-        cursor: pointer;
-        font-weight: bold;
-        padding: 10px 15px;
-        text-align: center;
-        transition: 200ms;
-        width: 100%;
-        box-sizing: border-box;
-        border: 0;
-        font-size: 16px;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-    }
 `
+export const ButtonAdicionar = styled.button`
+    background-color: #fff000;
+    border-radius: 12px;
+    color: #000;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px 15px;
+    text-align: center;
+    transition: 200ms;
+    width: 100%;
+    box-sizing: border-box;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+`
+
 export const DivResumo = styled.div`
     display: flex;
     flex-direction: column;
@@ -69,5 +69,10 @@ export const DivPrice = styled.div`
     div {
         display: flex !important;
         justify-content: space-between !important;
+    }
+    input {
+        margin-top: 30px;
+        margin-bottom: 90px;
+        width: 200px;
     }
 `
