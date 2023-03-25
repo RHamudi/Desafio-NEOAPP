@@ -8,7 +8,7 @@ export const Nav = styled.nav`
     background-color: black;
     position: fixed;
     width: 100vw;
-    z-index: 10000;
+    z-index: 99;
     div {
         padding-left: 50px;
     }
