@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
 export const DivMain = styled.div`
-    padding-top: 6rem;
+    padding-top: 7.5rem;
     display: flex;
     justify-content: center;
     gap: 5rem;
+    background-color: white;
+   
     hr{
         margin-bottom: 3rem;
     }
@@ -15,11 +17,18 @@ export const DivMain = styled.div`
         display: flex;
         flex-direction: column;
         width: 40vw;
+        h1{
+            font-weight: bold;
+            font-size: 2rem;
+        }
         p {
             padding-bottom: 5rem;
+            font-weight: bold;
         }
         span {
             padding-bottom: 5rem;
+            font-weight: bold;
+            font-size: 2rem;
         }
         button {
             background-color: #fff000;

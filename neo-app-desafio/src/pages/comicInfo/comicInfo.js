@@ -24,7 +24,7 @@ export default function ComicInfo(){
                 <div>
                     <h1>{comic[0].title}</h1>
                     <hr></hr>
-                    <p>{comic[0].description}</p>
+                    <p>Description: {comic[0].description}</p>
                     <span>R$: {comic.map(comic => comic.prices).map(item => item[0].price)[0]}</span>
                     <button>Adicionar <AiOutlineShoppingCart/> </button>
                 </div>
