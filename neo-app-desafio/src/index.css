@@ -11,6 +11,10 @@ body {
     background-image: url('assets/fundo.jpg');
 }
 
+.notify {
+    z-index: 10000000000000;
+}
+
 a {
     text-decoration: none;
     color: white;

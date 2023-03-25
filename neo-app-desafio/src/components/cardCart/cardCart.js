@@ -16,7 +16,7 @@ export default function CardCart({title, description, price, comic, image}){
                 </div>
                 <DivCard>
                     <div>
-                        <h1>{title}</h1>
+                        {comic.premium ? <h1>Premium: {title}</h1> : <h1>{title}</h1>}
                         <Desc>{description}</Desc>
                         <Price>R$: {price}</Price>
                     </div>
