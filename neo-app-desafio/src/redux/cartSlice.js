@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 export const slice = createSlice({
     name: 'Cart',
@@ -9,7 +10,17 @@ export const slice = createSlice({
     },
     reducers: {
         addCart(state, {payload}){
-            return {...state, comics: [...state.comics, ...payload], count: state.count + 1}
+            console.log()
+            if(state.comics.length > 0){
+                for(var i= 0; i<state.comics.length; i++){
+                    if(state.comics[i].id === payload[i].id){
+                        return {...state}
+                    } 
+            }
+            } else {
+                toast.success("Produto adicionado com sucesso");
+                return {...state, comics: [...state.comics, ...payload], count: state.count + 1}
+            }
         },
         removeCart(state, {payload}){
             for(var i= 0; i<state.comics.length; i++)
