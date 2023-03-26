@@ -5,7 +5,13 @@ export const Section = styled.section`
     hr {
         width: 61vw;
     }
+    @media (max-width: 768px) {
+        hr {
+        width: 100vw;
+        }
+    }
 `
+
 export const DivTitle = styled.div`
     display: flex;
 `
@@ -16,17 +22,31 @@ export const Title = styled.h1`
     background-color: white;
     padding: 10px;
     width: 60vw;
+    @media (max-width: 768px) {
+        display: flex;
+        justify-content: center;
+        margin: auto; 
+    }
 `
 export const DivCart = styled.div`
     display: flex;
     justify-content: ${props => props.false ? "center" : ""};
     gap: 1.5rem;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+       
+    }
 `
 
 export const DivCarts = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    @media (max-width: 768px) {
+        height: 400px;
+        overflow-y: scroll;
+    }
 `
 
 export const Resumo = styled.div`
@@ -36,7 +56,13 @@ export const Resumo = styled.div`
     background-color: white;
     height: 20vw;
     padding: 10px;
+    @media (max-width: 768px) {
+        background: white;
+        width: 70vw;
+        margin: auto;
+    }
 `
+
 export const ButtonAdicionar = styled.button`
     background-color: #fff000;
     border-radius: 12px;
@@ -59,6 +85,7 @@ export const DivResumo = styled.div`
     display: flex;
     flex-direction: column;
     padding-bottom: 1.5rem;
+
     h1 {
         text-align: center;
     }

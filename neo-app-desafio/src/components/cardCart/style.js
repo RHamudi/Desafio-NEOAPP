@@ -9,7 +9,18 @@ export const DivMain = styled.div`
     img {
         width: 200px;
     }
-    
+    @media (max-width: 768px) {
+        div {
+            display: flex;
+        }
+        img {
+            width: 100px;
+            margin: auto;
+        }
+        display: flex;
+        flex-direction: column;
+        max-width: 100vw;
+    }
 `
 
 export const DivCard = styled.div`
@@ -21,6 +32,9 @@ export const DivCard = styled.div`
     }
     h1 {
         text-align: center;
+        @media (max-width: 768px) {
+            font-size: 0.9rem;
+        }
     }
     button {
         align-self: flex-end;
@@ -28,7 +42,11 @@ export const DivCard = styled.div`
 `
 
 export const Desc = styled.p`
-    width: 577px;
+    width: auto;
+    @media (max-width: 768px) {
+        width: auto;
+        font-size: 0.9rem;
+    }
 `
 
 export const Price = styled.p`
