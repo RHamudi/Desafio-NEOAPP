@@ -19,6 +19,7 @@ export const Title = styled.h1`
 `
 export const DivCart = styled.div`
     display: flex;
+    justify-content: ${props => props.false ? "center" : ""};
     gap: 1.5rem;
 `
 

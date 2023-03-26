@@ -10,6 +10,7 @@ export default function Cart(){
     const {comics, count} = useSelector(selectCart)
     const [input, setInput] = useState();
     const [sumWithInitial, setSumWithInitial] = useState();
+    const [cupomUse, setCupomUse] = useState(false);
 
     const cupom = {
         premium: "PREMIUM123",
@@ -29,7 +30,6 @@ export default function Cart(){
             ).toFixed(2));
     }, [comics]);
     
-    
     function notify(msg, type){
         if(type === true){
             toast.success(msg, {className: "notify"})
@@ -40,56 +40,72 @@ export default function Cart(){
     
     function discount(){
         let discount;
-        if(input === cupom.premium && comics.map(item => item.hasOwnProperty("premium")).includes(true) === true){
-            discount = sumWithInitial * 0.1; 
-            setSumWithInitial(parseFloat((sumWithInitial - discount).toFixed(2)));
-            setInput('');
-            notify("Cupom premium adicionado!", true)
-        } else if(input === cupom.comum) {
-            discount = sumWithInitial * 0.2; 
-            setSumWithInitial(parseFloat((sumWithInitial - discount).toFixed(2)));
-            setInput('');
-            notify("Cupom comum adicionado!", true)
-        } else if (input !== cupom.premium || input !== cupom.premium){
-            notify("Cupom invalido, tente outro", false)
-        } else if (comics.map(item => item.hasOwnProperty("premium")).includes(true) === false && input === cupom.premium){
-            notify("Não é possivel utilziar esse cupom, seu carrinho não contem item premium", false)
+        if(cupomUse === false){
+            if(input === cupom.premium && comics.map(item => item.hasOwnProperty("premium")).includes(true) === true){
+                discount = sumWithInitial * 0.1; 
+                setSumWithInitial(parseFloat((sumWithInitial - discount).toFixed(2)));
+                setInput('');
+                setCupomUse(true);
+                notify("Cupom premium adicionado!", true)
+            } else if(input === cupom.comum) {
+                discount = sumWithInitial * 0.2; 
+                setSumWithInitial(parseFloat((sumWithInitial - discount).toFixed(2)));
+                setInput('');
+                setCupomUse(true);
+                notify("Cupom comum adicionado!", true)
+            } else if (input !== cupom.premium || input !== cupom.premium){
+                notify("Cupom invalido, tente outro", false)
+            } else if (comics.map(item => item.hasOwnProperty("premium")).includes(true) === false && input === cupom.premium){
+                notify("Não é possivel utilziar esse cupom, seu carrinho não contem item premium", false)
+            }
+        } else {
+            notify("Voce ja utilizou um cupom", false)
         }
     }
-
-    return (
-        <Section>
-            <ToastContainer position="top-right"
-                            autoClose={5000}
-                            hideProgressBar={false}
-                            newestOnTop={false}
-                            closeOnClick
-                            rtl={false}
-                            pauseOnFocusLoss
-                            draggable
-                            pauseOnHover
-                            theme="light" />
-            <Title>Resumo Do Carrinho ({count})</Title>
-            <hr></hr>
-            <DivCart>
-                <DivCarts>
-                    {comics.map(comic => <CardCart image={comic.images[0].path + "." + comic.images[0].extension} comic={comic} title={comic.title} description={comic.description} price={comics.map(comic => comic.prices).map(item => item[0].price)[0]}/>)}
-                </DivCarts>
-                <Resumo>
-                    <DivResumo>
-                        <h1>Resumo do pedido</h1>
-                    </DivResumo>
-                    <DivPrice>
-                        <div>
-                            <p>Subtotal: </p> <p>R$ :{sumWithInitial}</p>
-                        </div>
-                        <span>
-                            Cupom desconto: <input type="text" value={input} onChange={handleChange} /> <button onClick={discount}>Aplicar</button>
-                        </span>
-                    </DivPrice>
-                    <ButtonAdicionar>Comprar</ButtonAdicionar>
-                </Resumo>
-            </DivCart>
-        </Section>
-    )
+    
+    if(comics.length > 0){
+        return (
+            <Section>
+                <ToastContainer position="top-right"
+                                autoClose={5000}
+                                hideProgressBar={false}
+                                newestOnTop={false}
+                                closeOnClick
+                                rtl={false}
+                                pauseOnFocusLoss
+                                draggable
+                                pauseOnHover
+                                theme="light" />
+                <Title>Resumo Do Carrinho ({count})</Title>
+                <hr></hr>
+                <DivCart>
+                    <DivCarts>
+                        {comics.map(comic => <CardCart image={comic.images[0].path + "." + comic.images[0].extension} comic={comic} title={comic.title} description={comic.description} price={comics.map(comic => comic.prices).map(item => item[0].price)[0]}/>)}
+                    </DivCarts>
+                    <Resumo>
+                        <DivResumo>
+                            <h1>Resumo do pedido</h1>
+                        </DivResumo>
+                        <DivPrice>
+                            <div>
+                                <p>Subtotal: </p> <p>R$ :{sumWithInitial}</p>
+                            </div>
+                            <span>
+                                Cupom desconto: <input type="text" value={input} onChange={handleChange} /> <button onClick={discount}>Aplicar</button>
+                            </span>
+                        </DivPrice>
+                        <ButtonAdicionar>Comprar</ButtonAdicionar>
+                    </Resumo>
+                </DivCart>
+            </Section>
+        )
+    } else {
+        return (
+            <Section >
+                <DivCart false>
+                    <Title>Não Contem Itens No Carrinho</Title>
+                </DivCart>
+            </Section>
+        )
+    }
 }
