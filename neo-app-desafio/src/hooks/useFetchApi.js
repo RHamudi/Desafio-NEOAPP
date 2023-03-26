@@ -6,7 +6,7 @@ export function useFetchApi(offset){
     var ts = new Date().getTime();
     var stringToHash = ts + privatekey + publickey;
     var hash = md5(stringToHash);
-    var baseUrl = 'http://gateway.marvel.com/v1/public/comics?format=comic&formatType=comic&noVariants=true&orderBy=title';
+    var baseUrl = 'https://gateway.marvel.com/v1/public/comics?format=comic&formatType=comic&noVariants=true&orderBy=title';
     var limit = 20;
     var url = baseUrl + "&limit=" + limit + "&offset=" + offset + '&ts=' + ts + '&apikey=' + publickey + '&hash=' + hash;
 
