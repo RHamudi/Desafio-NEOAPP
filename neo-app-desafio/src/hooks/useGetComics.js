@@ -2,11 +2,7 @@ import axios from "axios";
 
 export async function getComics(url){
     const res = (
-        await axios({
-            method: 'get',
-            url: url,
-
-        })
+        await axios.get(url)
     ).data
 
     
