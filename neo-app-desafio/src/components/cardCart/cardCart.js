@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { removeCart } from "../../redux/cartSlice";
-import { Desc, DivCard, DivMain, Price } from "./style";
+import { ButtonDelete, Desc, DivCard, DivMain, Price } from "./style";
 
 export default function CardCart({title, description, price, comic, image}){
     const dispatch = useDispatch();
@@ -20,7 +20,7 @@ export default function CardCart({title, description, price, comic, image}){
                         <Desc>{description}</Desc>
                         <Price>R$: {price}</Price>
                     </div>
-                    <button onClick={remove}>excluir</button>
+                    <ButtonDelete onClick={remove}>excluir</ButtonDelete>
                 </DivCard>
             </DivMain>
     )

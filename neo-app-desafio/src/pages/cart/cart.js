@@ -4,7 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import CardCart from "../../components/cardCart/cardCart";
 import { selectCart } from "../../redux/cartSlice";
-import { ButtonAdicionar, DivCart, DivCarts, DivPrice, DivResumo, Resumo, Section, Title } from "./style";
+import { ButtonAdicionar, ButtonAplicar, DivCart, DivCarts, DivPrice, DivResumo, Resumo, Section, Title } from "./style";
 
 export default function Cart(){
     const {comics, count} = useSelector(selectCart)
@@ -91,7 +91,7 @@ export default function Cart(){
                                 <p>Subtotal: </p> <p>R$ :{sumWithInitial}</p>
                             </div>
                             <span>
-                                Cupom desconto: <input type="text" value={input} onChange={handleChange} /> <button onClick={discount}>Aplicar</button>
+                                Cupom desconto: <input type="text" value={input} onChange={handleChange} /> <ButtonAplicar onClick={discount}>Aplicar</ButtonAplicar>
                             </span>
                         </DivPrice>
                         <ButtonAdicionar>Comprar</ButtonAdicionar>

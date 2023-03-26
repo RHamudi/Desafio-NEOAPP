@@ -101,6 +101,21 @@ export const DivPrice = styled.div`
     input {
         margin-top: 30px;
         margin-bottom: 90px;
-        width: 200px;
+        width: 100px;
     }
+`
+
+export const ButtonAplicar = styled.button`
+  background-color: #FFFFFF;
+  border: 1;
+  border-radius: .5rem;
+  box-sizing: border-box;
+  color: #111827;
+  font-size: .875rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  padding: 0.4rem 1rem;
+  text-align: center;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  cursor: pointer;
 `
