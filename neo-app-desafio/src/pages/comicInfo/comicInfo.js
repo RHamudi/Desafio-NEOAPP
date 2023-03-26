@@ -7,15 +7,16 @@ import { DivMain } from "./style";
 
 export default function ComicInfo(){
     const {id} = useParams();
-        var publickey = '24c9d051822feb3ac57093dbbf67d7de';
-        var privatekey = '28a5d083127ec437d90bfc81e2ab14442a4a61d0';
-        var ts = new Date().getTime();
-        var stringToHash = ts + privatekey + publickey;
-        var hash = md5(stringToHash);
-        var baseUrl = `http://gateway.marvel.com/v1/public/comics/${id}?`;
-        var url = baseUrl + '&ts=' + ts + '&apikey=' + publickey + '&hash=' + hash;
+    var publickey = '24c9d051822feb3ac57093dbbf67d7de';
+    var privatekey = '28a5d083127ec437d90bfc81e2ab14442a4a61d0';
+    var ts = new Date().getTime();
+    var stringToHash = ts + privatekey + publickey;
+    var hash = md5(stringToHash);
+    var baseUrl = `http://gateway.marvel.com/v1/public/comics/${id}?`;
+    var url = baseUrl + '&ts=' + ts + '&apikey=' + publickey + '&hash=' + hash;
 
     const {data: comic, isLoading: loading} = useQuery(['Comic'], () => getComics(url));
+
 
     if(!loading){
         return (
@@ -24,7 +25,7 @@ export default function ComicInfo(){
                 <div>
                     <h1>{comic[0].title}</h1>
                     <hr></hr>
-                    <p>Description: {comic[0].description}</p>
+                    {comic[0].description ? <p>Description: {comic[0].description}</p> : <p>Description not found (API)</p>}
                     <span>R$: {comic.map(comic => comic.prices).map(item => item[0].price)[0]}</span>
                     <button>Adicionar <AiOutlineShoppingCart/> </button>
                 </div>

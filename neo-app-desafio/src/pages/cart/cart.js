@@ -27,7 +27,7 @@ export default function Cart(){
             (accumulator, currentValue) => accumulator + currentValue,
             initialValue
             ).toFixed(2));
-    }, []);
+    }, [comics]);
     
     
     function notify(msg, type){
@@ -50,10 +50,13 @@ export default function Cart(){
             setSumWithInitial(parseFloat((sumWithInitial - discount).toFixed(2)));
             setInput('');
             notify("Cupom comum adicionado!", true)
-        } else if (input != cupom.premium || input != cupom.premium){
+        } else if (input !== cupom.premium || input !== cupom.premium){
             notify("Cupom invalido, tente outro", false)
+        } else if (comics.map(item => item.hasOwnProperty("premium")).includes(true) === false && input === cupom.premium){
+            notify("Não é possivel utilziar esse cupom, seu carrinho não contem item premium", false)
         }
     }
+
     return (
         <Section>
             <ToastContainer position="top-right"
