@@ -10,14 +10,15 @@ export const DivMain = styled.div`
     background-color: black;
     padding: 10px;
     border-radius: 10px;
-    h2 {
-        text-align: center;
-        padding: 5px;
-        color: ${props => props.premium ? "yellow" : "white"};
-    }
     p {
         text-align: center;
     }
+`
+
+export const Title = styled.h2`
+    text-align: center;
+    padding: 5px;
+    color: ${props => props.premium ? "yellow" : "white"};
 `
 
 export const Image = styled.img`
