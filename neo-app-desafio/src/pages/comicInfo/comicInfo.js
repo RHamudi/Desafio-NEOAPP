@@ -1,9 +1,11 @@
 import md5 from "md5";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useQuery } from "react-query";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom"
 import { getComics } from "../../hooks/useGetComics";
 import { DivMain } from "./style";
+import { addCart } from '../../redux/cartSlice';
 
 export default function ComicInfo(){
     const {id} = useParams();
@@ -17,7 +19,12 @@ export default function ComicInfo(){
 
     const {data: comic, isLoading: loading} = useQuery(['Comic'], () => getComics(url));
 
+    const dispatch = useDispatch();
 
+    function addCartComic(){
+        dispatch(addCart(comic));
+    }
+    
     if(!loading){
         return (
             <DivMain>
@@ -27,7 +34,7 @@ export default function ComicInfo(){
                     <hr></hr>
                     {comic[0].description ? <p>Description: {comic[0].description}</p> : <p>Description not found (API)</p>}
                     <span>R$: {comic.map(comic => comic.prices).map(item => item[0].price)[0]}</span>
-                    <button>Adicionar <AiOutlineShoppingCart/> </button>
+                    <button onClick={addCartComic}>Adicionar <AiOutlineShoppingCart/> </button>
                 </div>
             </DivMain>
         )
