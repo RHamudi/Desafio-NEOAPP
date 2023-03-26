@@ -13,10 +13,6 @@ Etapas do desenvolvimento:
 - começar a estruturar todas as pastas do projeto;
 - Comecei a codar a pagina principal depois a pagina de visualização individual e por ultimo o carrinho.
 
-### Cupom para desconto
-- PREMIUM10 - Só funciona se no carrinho conter um item Premium 
-- COMUM20 
-
 ### Tecnologias 
 - [React](https://pt-br.reactjs.org/)
 - [Styled Components](https://styled-components.com/)
@@ -30,10 +26,7 @@ Etapas do desenvolvimento:
 ### src
 Essa pasta armazena todo o projeto.
 
-### components/elements
-Contém apenas componentes estáticos, poder ser utilizado pelos ```components/mudules``` ou até mesmo por ```/pages```.
-
-### components/modules
+### components
 Contem todos os components reutilizados / ou componentes que necessita de uma logica mais robusta.
 
 ### pages
@@ -50,3 +43,7 @@ Contem todos arquivos para configuração e utilização do redux Tolkit
 
 ### styles
 Contem todos os arquivos de estilização global
+
+### Cupom para desconto
+- PREMIUM10 - Só funciona se no carrinho conter um item Premium 
+- COMUM20 
