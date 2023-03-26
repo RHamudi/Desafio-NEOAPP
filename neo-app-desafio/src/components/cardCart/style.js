@@ -14,6 +14,11 @@ export const DivMain = styled.div`
 
 export const DivCard = styled.div`
     display: flex;
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
     h1 {
         text-align: center;
     }
@@ -27,6 +32,7 @@ export const Desc = styled.p`
 `
 
 export const Price = styled.p`
-   
+   font-size: 2rem;
+   font-weight: bold;
 `
 
