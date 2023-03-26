@@ -10,13 +10,14 @@ export const slice = createSlice({
     },
     reducers: {
         addCart(state, {payload}){
-            console.log()
-            if(state.comics.length > 0){
-                for(var i= 0; i<state.comics.length; i++){
-                    if(state.comics[i].id === payload[i].id){
-                        return {...state}
-                    } 
+            let contemComic = false;
+            for(var i= 0; i<state.comics.length; i++){
+                if(state.comics[i].id === payload[0].id){
+                    contemComic = true;
+                } 
             }
+            if(contemComic === true){
+                toast.error("Produto ja adicionado")
             } else {
                 toast.success("Produto adicionado com sucesso");
                 return {...state, comics: [...state.comics, ...payload], count: state.count + 1}
@@ -26,6 +27,7 @@ export const slice = createSlice({
             for(var i= 0; i<state.comics.length; i++)
             {
                 if(state.comics[i].id === payload.id){
+                    toast.success("Produto removido com sucesso");
                     return {...state, comics: [...state.comics].filter(item => item.id !== payload.id), count: state.count - 1}
                 }
             }
