@@ -13,8 +13,8 @@ export default function Cart(){
     const [cupomUse, setCupomUse] = useState(false);
 
     const cupom = {
-        premium: "PREMIUM123",
-        comum: "COMUM123"
+        premium: "PREMIUM10",
+        comum: "COMUM20"
     }
     
     const handleChange = (e) => {
