@@ -6,6 +6,7 @@ import md5 from 'md5';
 import { useSelector } from 'react-redux';
 import { selectPage } from '../../redux/pageSlice';
 import { useQuery } from 'react-query';
+import { ToastContainer } from 'react-toastify';
 
 export default  function Home(){
     const {offset} = useSelector(selectPage)
@@ -25,8 +26,18 @@ export default  function Home(){
         return (
             <DivMain>
                 <Title>Marvel Comics</Title>
+                <ToastContainer position="top-right"
+                            autoClose={5000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover
+                            theme="light" />
                 <Section>
-                    {comics?.map((comic)=> 
+                    {comics?.map((comic)=>
                         <Card comic={comic} price={comics.map(comic => comic.prices).map(item => item[0].price)[0]} title={comic.title} imgUrl={comic.images[0].path + "." + comic.images[0].extension} />
                     )}
                 </Section>
