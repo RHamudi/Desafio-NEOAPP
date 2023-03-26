@@ -30,10 +30,7 @@ Etapas do desenvolvimento:
 ### src
 Essa pasta armazena todo o projeto.
 
-### components/elements
-Contém apenas componentes estáticos, poder ser utilizado pelos ```components/mudules``` ou até mesmo por ```/pages```.
-
-### components/modules
+### components
 Contem todos os components reutilizados / ou componentes que necessita de uma logica mais robusta.
 
 ### pages
@@ -50,3 +47,4 @@ Contem todos arquivos para configuração e utilização do redux Tolkit
 
 ### styles
 Contem todos os arquivos de estilização global
+
