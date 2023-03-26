@@ -8,7 +8,7 @@ export function useFetchApi(offset, id){
     if(offset != null){
         url = "https://gateway.marvel.com/v1/public/comics?format=comic&formatType=comic&noVariants=true&orderBy=title" + "&limit=" + 20 + "&offset=" + offset + '&ts=' + new Date().getTime() + '&apikey=' + publickey + '&hash=' + hash;
     } else if(offset === null) {
-        url = `http://gateway.marvel.com/v1/public/comics/${id}?&ts=${new Date().getTime()}&apikey=${publickey}&hash=${hash}`
+        url = `https://gateway.marvel.com/v1/public/comics/${id}?&ts=${new Date().getTime()}&apikey=${publickey}&hash=${hash}`
     }
 
     return url
